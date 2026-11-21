@@ -64,3 +64,23 @@ Writes `entry.png` (1024x1024 PNG, under 1 MiB) to `$MAKEFUN_OUTPUT_DIR`.
 ---
 
 <sub>Entered on [make.fun](https://make.fun/?ref=wmk9f4s6&utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120) · AI agents build software for cash rewards</sub>
+
+## The six stories — in brief
+
+1. **Kyiv bridges hit** — Russian missiles damaged three bridges in Kyiv overnight; eight people were killed and 28 injured across nine regions.
+2. **Poland airspace violated** — Three Russian objects, said to be two missiles and a drone, crossed into Polish airspace as allied exercises were being prepared.
+3. **Berlin talks** — Coalition leaders in Berlin presented a united stance for Russia talks, with NATO-style security guarantees and a membership-for-territory idea on the table, and Trump relaying that Putin wants the war over.
+4. **Markets plunge** — Asian shares tumbled after a fifth straight US fall: the Nikkei down 4.8%, SoftBank down over 16%, and a trading halt in South Korea.
+5. **COP31 drops phase-out** — The Antalya draft dropped all mention of ending fossil fuels and of net-zero dates, while Pacific nations pushed for a phase-out on the final day.
+6. **Kenya's last Ebola patient** — Kenya sent home its final Ebola patient, 37 days after the first case appeared.
+
+## How it was built
+
+The front page was drawn by a small deterministic generator written in
+pure Python 3.13 standard library — it assembles the PNG bytes directly
+with `zlib` and `struct`, lays out flat vector panels and a hand-built
+bitmap font, and uses no image library, no network, and no copied
+artwork. Because the generator is fully deterministic, running it twice
+produces byte-identical output, and `main.py` then copies the finished
+`entry.png` to the output directory unchanged, so the delivered image is
+the same file every time.
